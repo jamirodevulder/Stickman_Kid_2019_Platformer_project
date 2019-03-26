@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
     public float speed = 0;
     public float jumpspeed = 0;
     private bool jump = true;
+    private bool down = false;
 	// Use this for initialization
 	void Start () {
        
@@ -28,10 +29,21 @@ public class PlayerMovement : MonoBehaviour {
             {
                 jump = false;
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpspeed), ForceMode2D.Impulse);
-
+                down = true;
                 
             }
         }
+        if (Input.GetKey(KeyCode.S))
+        {
+            if (down)
+            {
+                
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -jumpspeed), ForceMode2D.Impulse);
+                down = false;
+
+            }
+        }
+
 
     }
 
@@ -41,6 +53,7 @@ public class PlayerMovement : MonoBehaviour {
         if(collision.gameObject.tag == "ground")
         {
             jump = true;
+            down = false;
         }
       
     }
