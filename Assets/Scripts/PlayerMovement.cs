@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpspeed = 0;
     private bool jump = true;
     private bool down = false;
+    private bool keyup = false;
 	// Use this for initialization
 	void Start () {
        
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour {
 
             }
         }
+      
 
 
     }
