@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             transform.position -= new Vector3(+speed, 0, 0) * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && GetComponent<Rigidbody2D>().velocity.magnitude <= 2)
         {
             if(jump)
             {
@@ -45,6 +45,12 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
       
+
+        if(transform.position.y <= -3 && !GameObject.Find("cloud").GetComponent<TrapScript>().iamdead)
+        {
+            GameObject.Find("cloud").GetComponent<TrapScript>().fall();
+            GameObject.Find("cloud").GetComponent<TrapScript>().iamdead = true;
+        }
 
 
     }
