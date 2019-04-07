@@ -5,7 +5,6 @@ using UnityEngine;
 public class TrapMovement : MonoBehaviour
 {
     private GameObject player;
-
     private GameObject camera;
     public float movement;
     private bool nothit = true;
@@ -31,18 +30,11 @@ public class TrapMovement : MonoBehaviour
         if (collision.name == "player")
         {
             nothit = false;
-            player.GetComponent<PlayerMovement>().enabled = false;
-            StartCoroutine(dead());
-            
+            GameObject.Find("dead").GetComponent<deadhandler>().fall();
+            GameObject.Find("dead").GetComponent<deadhandler>().iamdead = true;
+            Destroy(gameObject);
 
         }
     }
-    IEnumerator dead()
-    {
-        yield return new WaitForSeconds(1.5f);
-        player.transform.position = new Vector3(-7.24f, -1, 0);
-        camera.transform.position = new Vector3(0.15f, 0, -10);
-        player.GetComponent<PlayerMovement>().enabled = true;
-        Destroy(gameObject);
-    }
+   
 }

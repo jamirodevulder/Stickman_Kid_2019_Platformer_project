@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             transform.position += new Vector3(+speed, 0, 0) * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && transform.position.x >= -8.5)
         {
             transform.position -= new Vector3(+speed, 0, 0) * Time.deltaTime;
         }
@@ -46,10 +46,10 @@ public class PlayerMovement : MonoBehaviour {
         }
       
 
-        if(transform.position.y <= -3 && !GameObject.Find("cloud").GetComponent<TrapScript>().iamdead)
+        if(transform.position.y <= -3 && !GameObject.Find("dead").GetComponent<deadhandler>().iamdead)
         {
-            GameObject.Find("cloud").GetComponent<TrapScript>().fall();
-            GameObject.Find("cloud").GetComponent<TrapScript>().iamdead = true;
+            GameObject.Find("dead").GetComponent<deadhandler>().fall();
+            GameObject.Find("dead").GetComponent<deadhandler>().iamdead = true;
         }
 
 

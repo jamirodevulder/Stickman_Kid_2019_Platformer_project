@@ -8,7 +8,6 @@ public class TrapScript : MonoBehaviour {
     private GameObject player;
     private Component movement;
     private GameObject camera;
-    public bool iamdead;
     // Use this for initialization
     void Start () {
        player = GameObject.Find("player");
@@ -24,24 +23,16 @@ public class TrapScript : MonoBehaviour {
         if(collision.name == "player")
         {
             GetComponent<SpriteRenderer>().sprite = cloudLightning;
-            player.GetComponent<PlayerMovement>().enabled = false;
-            StartCoroutine(dead());
-            
-            
+            StartCoroutine(lightning());
+            GameObject.Find("dead").GetComponent<deadhandler>().fall();
+            GameObject.Find("dead").GetComponent<deadhandler>().iamdead = true;
         }
     }
-    IEnumerator dead()
+    IEnumerator lightning()
     {
-       yield return new WaitForSeconds(1.5f);
+       yield return new WaitForSeconds(1.6f);
         GetComponent<SpriteRenderer>().sprite = cloud;
-        player.transform.position = new Vector3(-7.24f, -1, 0);
-        camera.transform.position = new Vector3(0.15f, 0, -10);
-        player.GetComponent<PlayerMovement>().enabled = true;
-        iamdead = false;
-    }
+      
 
-    public void fall()
-    {
-        StartCoroutine(dead());
     }
 }
