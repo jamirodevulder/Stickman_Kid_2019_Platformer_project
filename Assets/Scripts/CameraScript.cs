@@ -30,7 +30,7 @@ public class CameraScript : MonoBehaviour {
             transform.position = new Vector3(0.15f, 0, -10);
         }
 
-
+       
 
     }
 }
