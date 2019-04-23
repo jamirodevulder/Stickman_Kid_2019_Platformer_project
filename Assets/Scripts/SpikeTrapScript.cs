@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SpikeTrapScript : MonoBehaviour {
     private bool ishit;
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.name == "player" && !ishit)
+        if (other.name == "player" && !ishit)
         {
             ishit = true;
             GameObject.Find("dead").GetComponent<deadhandler>().fall();

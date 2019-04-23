@@ -9,7 +9,6 @@ public class ScoreHandler : MonoBehaviour {
 	void Start () {
       count = GameObject.Find("points").transform.childCount;
         points = new GameObject[count];
-        print(count);
 	}
 	
 

@@ -13,6 +13,7 @@ public class hiddenSpikeTrapScript : MonoBehaviour {
     {
         if(other.name == "player")
         {
+           
            GameObject trap = gameObject.transform.GetChild(0).gameObject;
             trap.SetActive(true);
             StartCoroutine(removespike());
@@ -21,7 +22,7 @@ public class hiddenSpikeTrapScript : MonoBehaviour {
 
     IEnumerator removespike()
     {
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(2f);
         trap.SetActive(false);
 
     }
