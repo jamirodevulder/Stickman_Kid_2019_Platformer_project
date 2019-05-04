@@ -109,6 +109,14 @@ public class PlayerMovement : MonoBehaviour {
             jump = false;
         }
     }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "ground")
+        {
+            jump = true;
+            down = false;
+        }
+    }
 
     public void changekeys()
     {

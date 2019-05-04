@@ -9,7 +9,7 @@ public class PlayGameScript : MonoBehaviour {
     
     public void play()
     {
-        SceneManager.LoadScene("lvl1");
+        SceneManager.LoadScene("ShowCaseLVL");
     }
 
 }

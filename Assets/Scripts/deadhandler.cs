@@ -28,6 +28,13 @@ public class deadhandler : MonoBehaviour {
             player.GetComponent<PlayerMovement>().enabled = true;
             iamdead = false;
             check = false;
+            GameObject points = GameObject.Find("points");
+            
+            for(int i = 0; i < points.transform.childCount; i++)
+            {
+                points.transform.GetChild(i).gameObject.SetActive(true);
+                player.GetComponent<ScoreHandler>().points[i] = null;
+            }
         }
     }
 

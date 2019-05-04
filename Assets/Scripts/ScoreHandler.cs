@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ScoreHandler : MonoBehaviour {
     public GameObject[] points;
     private int count;
+    
 	// Use this for initialization
 	void Start () {
       count = GameObject.Find("points").transform.childCount;
@@ -37,7 +38,7 @@ public class ScoreHandler : MonoBehaviour {
 
                 if(check == count)
                 {
-                  print("win");
+                    SceneManager.LoadScene("YouWon");
                 }
                
             }
